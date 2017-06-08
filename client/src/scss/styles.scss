@@ -1,0 +1,130 @@
+/*
+how-are-you widget stylesheet
+*/
+
+/* Deployment-specific settings */
+$href-default-color: #004990;
+$href-hover-color: #23527c;
+$option-icon-size: 54px;
+$option-icon-inactive-color: #ddd;
+$option-icon-active-color: #ffcc4d;
+$text-color: #333;
+$text-color-light: #777;
+
+/* General rules */
+#deploy-how-are-you-widget {
+  /* width: $option-icon-size*4 + $option-icon-size/6*8; */
+  /* height: 120px; */
+  position:fixed; _position:absolute; right: 0px; bottom: 0px;
+  margin:16px; z-index:1000;
+  background: rgba(255, 255, 255, 1.0);padding: 8px 6px;
+  border-radius: 6px;	-webkit-box-shadow: 0px 0px 16px 0px rgba(50, 47, 50, 0.5);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(50, 47, 50, 0.5);
+  box-shadow: 0px 0px 16px 0px rgba(50, 47, 50, 0.5); text-align: center; line-height: 1.0em;
+  font-family: Arial; color: $text-color; font-size: 10pt;
+
+  .caption {
+    font-size: 12pt;
+    margin: 0.3em 0.2em;
+    color: $text-color-light;
+    line-height: 1.4em;
+  }
+  a { color: $href-default-color; text-decoration: underline; border: none;
+    &:hover { color: $href-hover-color; }
+  }
+  #vote-thanks { margin-top: 30px; line-height: 1.5em; }
+  #disclaimer {
+    font-size: 0.8em; font-family: Arial; margin-bottom: 2px;
+    line-height: 1.3em;
+  }
+  #option-go-away{padding-bottom: 0.4em;}
+  #options-row {
+    margin-top: 4px;
+    .vote-option {
+      height:$option-icon-size;
+      width: $option-icon-size;
+      margin: 4px $option-icon-size/8;
+      display: inline-block;
+      background-color: $option-icon-inactive-color;
+      background-size: $option-icon-size $option-icon-size;
+      &:hover { background-color: $option-icon-active-color; }
+    }
+  }
+  .why-bad-list {
+    text-align: left;
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
+    ol, ul { list-style: none; padding-left: 0px; margin:0px }
+    li {
+      position: relative;
+      padding: 7px 15px 7px 30px;
+      line-height: 18px;
+      font-size: 12px;
+      color: $text-color;
+      border-top: 1px solid #e6ebed;
+    }
+    input[type=checkbox] { position: absolute; top: 4px; bottom: 0px; left: 0px; }
+  }
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .5rem 1rem;
+    font-size: 10.5pt;
+    border-radius: .25rem;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    color: $href-default-color;
+    background-image: none;
+    background-color: transparent;
+    border-color: $href-default-color;
+    text-decoration: none;
+    &:hover {
+      color: #fff;
+      background-color: $href-default-color;
+      border-color: $href-default-color;
+      text-decoration: none;
+      }
+    }
+    .disabled { color: $text-color-light; border-color: $text-color-light;
+      &:hover {
+        color: $text-color-light;
+        border-color: $text-color-light;
+        background-color: white;
+      }
+  }
+
+  /* Voucher give-away dialog */
+  .give-away-message-row {
+    vertical-align: top;
+    .prize-icon {
+      width:178px; height: 172px;display: inline-block; background-size: 178px 172px; margin-top: 8px; margin-bottom: 6px;
+    }
+    .message-container {
+      display: inline-block; vertical-align: top; margin-top: 18px; margin-right: 20px; margin-left: 10px;
+    }
+    .caption {
+      margin-top: 0px; padding-top: 0px; color: #004990; font-size: 14pt; line-height: 1.6em;
+    }
+  }
+  .code-row {
+    margin: 2px 6px;
+    input {
+      height: 31px; margin: 5px 0px; color: #004990; width: 280px; font-size: 10pt; border: 1px solid #004990; border-radius: .25rem; padding: 1px 5px; margin-right: 8px;
+    }
+    .btn { margin-top: -3px; }
+  }
+
+
+  .svg-opt_1:hover { background-color: #39cd4d !important;  }
+  .svg-opt_4:hover { background-color: rgb(228, 85, 65) !important;  }
+}

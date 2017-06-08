@@ -1,0 +1,31 @@
+{
+  "name": "how-are-you-js",
+  "version": "0.0.1",
+  "description": "how-are-you widet buildline",
+  "main": "gulpfile.js",
+  "scripts": {
+    "debug": "gulp debug",
+    "debug-flask": "gulp deflask",
+    "build": "gulp build",
+    "wavi": "wavi dist/static demo.svg"
+  },
+  "author": "Viktor Kravchenko <electron378@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-bower": "0.0.13",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-svg-to-css": "^1.1.15",
+    "gulp-svgmin": "^1.2.3",
+    "gulp-uglify": "^2.1.2",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-ie-launcher": "^1.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4"
+  }
+}

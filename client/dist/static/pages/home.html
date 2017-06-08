@@ -1,0 +1,100 @@
+<div class="container">
+
+
+
+<div class="row">
+  <div class="col-md-6"><!-- column-left -->
+
+    <!-- introduction -->
+<div class="panel panel-default">
+  <div class="panel-heading" style="background-color:white; font-size:1.3em;">Introduction</div>
+  <div class="panel-body">
+    <p>This App helps to collect anonymously a measure of mood/happiness and the reasons for unhappiness among employees.
+      The data provides a bird-eye view so that the leadership team could reflect on its own performance but also assist the teams in trouble by various means.</p>
+    <p>Feel free to learn more about the App <a href="#!/about">here</a> or how it makes the data collection anonymous <a href="#!/anonymity">here</a>.</p>
+  </div>
+</div><!-- /introduction -->
+
+  </div><!-- /column-left -->
+  <div class="col-md-6"><!-- column-right -->
+
+    <div ng-if="MoodApp_stm_Cookies.conf_expired" ng-include='"./static/pages/config-required.html"'>
+	<!-- config-required -->
+<div class="panel panel-warning">
+  <div class="panel-heading" style="background-color:white; font-size:1.3em;">Configuration expired</div>
+  <div class="panel-body">
+    <p>It looks like you team configration is empty or expired. Please choose a team that should recieve your mood votes in the widget below. Thanks!</p>
+  </div>
+</div><!-- /config-required -->
+	</div>
+    <!-- daily widget stuff -->
+<div ng-controller="moodsAppVotesPannel">
+  <div ng-show="votes_done==false" class="panel panel-default">
+    <div class="panel-heading" style="background-color:white; font-size:1.3em;">How are you today?</div>
+    <div class="panel-body">
+      <p>Share your mood and learn how the rest of the team is doing!</p>
+    </div>
+  </div>
+
+  <div class="panel panel-default" ng-show="votes_done==true">
+    <div class="panel-heading" style="background-color:white; font-size:1.3em;">Team mood today</div>
+    <div class="panel-body">
+      <p ng-if="total==undefined">The team mooods will appear here shortly</p>
+      <p ng-if="total==0">No one else voted yet</p>
+      <div ng-if"total!=0">
+        <p>Today we have {{ total }} vote(s), where:</p>
+<!---------------------------------------------------------------------------->
+      <div>
+        <div class="vote-option svg-opt_1 metric-face"></div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" ng-style="{width: opt1 + '%'}">
+            {{ opt1 | number:0 }}%
+          </div>
+        </div>
+      <div>
+      <div>
+        <div class="vote-option svg-opt_2 metric-face"></div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" ng-style="{width: opt2 + '%'}">
+            {{ opt2 | number:0 }}%
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="vote-option svg-opt_3 metric-face"></div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="{width: opt3 + '%'}">
+            {{ opt3 | number:0 }}%
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="vote-option svg-opt_4 metric-face"></div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" ng-style="{width: opt4 + '%'}">
+            {{ opt4 | number:0 }}%
+          </div>
+        </div>
+      </div>
+<!---------------------------------------------------------------------------->
+      </div>
+    </div>
+  </div>
+
+<!--
+  <div ng-show="votes_done==true" class="panel panel-default">
+    <div class="panel-heading" style="background-color:white; font-size:1.3em;">What makes us unhappy today</div>
+    <div class="panel-body">
+      <p>The unhappiness reasons will appear here shortly</p>
+    </div>
+  </div>-->
+</div>
+<!-- /daily widget stuff -->
+
+
+  </div><!-- /column-right -->
+</div>
+
+
+
+</div> <!-- /container -->

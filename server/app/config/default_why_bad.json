@@ -1,0 +1,13 @@
+{
+  "options": [
+    { "name": "issues at home, not related to work" },
+    { "name": "issues at home, linked to work" },
+    { "name": "issues with dept. management" },
+    { "name": "issues with local colleagues" },
+    { "name": "issues with remote colleagues" },
+    { "name": "IT issues" },
+    { "name": "inefficient processes impact my performance" },
+    { "name": "I'm overloaded and/or stressed at work" },
+    { "name": "none of the above", "reset": true }
+  ]
+}
