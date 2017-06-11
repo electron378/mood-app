@@ -9,14 +9,6 @@ People's mood at work is influenced by a variety of things like work-related
   performance but also help the teams in trouble by various means
   (e.g. balance load).
 
-## Lottery feature
-The application provides means to promote the participation and increase the
-  general happiness buy giving out an individual within a team or group of teams
-  a bonus voucher code, that can be exchanged for a gift. The application also
-  implements basic means to prevent voucher mining. For instance, a team will
-  be banned from the participation if a number of votes per day exceeds the
-  expectation. This feature will be available shortly.
-
 ## Credits
 This is an open source software distributed under the [MIT license](https://opensource.org/licenses/MIT).
 
