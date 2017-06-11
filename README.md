@@ -10,7 +10,7 @@ People's mood at work is influenced by a variety of things like work-related
   (e.g. balance load).
 
 ## Credits
-This is an open source software distributed under the [MIT license](https://opensource.org/licenses/MIT).
+This is an open source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 The App is made of open-source components only. Here are the credits:
 
