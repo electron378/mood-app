@@ -1,5 +1,5 @@
 # Mood-App
-This software helps to anonymously collect the measure of happiness
+This web service helps to anonymously collect the measure of happiness
   and the reasons for unhappiness among employees.
 
 People's mood at work is influenced by a variety of things like work-related
@@ -8,6 +8,13 @@ People's mood at work is influenced by a variety of things like work-related
   providing a bird-eye view so that a leadership team could reflect on its own
   performance but also help the teams in trouble by various means
   (e.g. balance load).
+
+## Development Environment
+Requires: Vagrant >= 1.8.3, VirtualBox
+
+The app dev process is currently local and is based on Vagrant. The Vagrant file configures the development virtual machine, gets all the dependencies and sets stuff up so that you get the same consistent development experience regardless of your host OS specifics. When the vagrant is up you should get the app front-end at 192.168.42.42
+
+All code is written using the fantastic Github's Atom.
 
 ## Credits
 This is an open source software licensed under the [MIT license](https://opensource.org/licenses/MIT).

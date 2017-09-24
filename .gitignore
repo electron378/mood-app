@@ -7,3 +7,5 @@ docs/.ipynb_checkpoints/
 client/npm-debug.log
 server/venv/
 server/app/data/
+server/service.log
+.vagrant/

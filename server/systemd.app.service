@@ -1,0 +1,22 @@
+[Unit]
+Description=mood-app daemon
+Requires=mood-app.socket
+After=network.target
+
+[Service]
+PIDFile=/run/mood-app/pid
+User=vagrant
+Group=www-data
+RuntimeDirectory=mood-app
+WorkingDirectory=/vagrant/server
+ExecStart=/usr/local/bin/gunicorn \
+          --access-logfile /vagrant/server/access.log \
+          --error-logfile /vagrant/server/error.log \
+          --pid /run/mood-app/pid   \
+          --bind unix:/run/mood-app/socket wsgi
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
