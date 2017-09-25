@@ -11,9 +11,12 @@
       <div class="panel-heading" style="background-color:white; font-size:1.3em;">
         Last Week <span style="color:#999">({{ weekly_range }})</span></div>
       <div class="panel-body">
-        <div ng-if="weekly_calculated">
+        <div ng-if="weekly_calculated==true">
           <half-donut data="weekly_mood" w="294" h="152" title="Mood"></half-donut>
           <half-donut data="weekly_participation" w="294" h="152" title="Participation"></half-donut>
+        </div>
+        <div ng-if="weekly_calculated==false">
+          <p>No moods data available for the last week</p>
         </div>
         <div ng-if="weekly_bads">
           <hr>

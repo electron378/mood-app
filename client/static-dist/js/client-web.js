@@ -1,13 +1,12 @@
 /**
 * The Mood App Client - Web page variant
 */
-var app = angular.module('MoodAppWebClient', [ 'ngRoute', 'ngAnimate', 'ngCookies' ]);
+var app = angular.module('MoodAppWebClient', [ 'ngRoute', 'ngAnimate']);
 
 /**
 * Configure the Routes
 */
 app.config( [ '$routeProvider', '$locationProvider', function( $routeProvider, $locationProvider ){
-  console.log(mood_app_path+"/static/pages/about.html");
   $routeProvider
   // Pages
   .when("/", {templateUrl: mood_app_path+"/static/pages/home.html", animation: 'first', controller: "PageCtrl"})
@@ -82,12 +81,12 @@ app.directive('badBars', function ($parse) {
   return directiveDefinitionObject;
 });
 
-app.controller('homeControl', ['$scope', '$window', '$http', '$cookies',
-  function($scope, $window, $http, $cookies){
+app.controller('homeControl', ['$scope', '$window', '$http',
+  function($scope, $window, $http){
   /* inital states */
   $scope.votes_done = false;
   $scope.team_code = Cookies.get("how-are-you-team-code");
-  if ($scope.team_code != undefined){
+  if ($scope.team_code !== undefined){
     /* get initial team stats */
     $http.get(mood_app_path+"/api/stats/"+$scope.team_code).then(function(rsp){
       $scope.weekly_range = rsp.data.weekly.range;
@@ -96,8 +95,8 @@ app.controller('homeControl', ['$scope', '$window', '$http', '$cookies',
       if ($scope.weekly_mood.length > 0){
         $scope.weekly_calculated = true;
       } else { $scope.weekly_calculated = false; }
-      if (rsp.data.weekly.bads != undefined){
-        $scope.weekly_bads = rsp.data.weekly.bads
+      if (rsp.data.weekly.bads !== undefined){
+        $scope.weekly_bads = rsp.data.weekly.bads;
       }
     });
   }
@@ -105,14 +104,14 @@ app.controller('homeControl', ['$scope', '$window', '$http', '$cookies',
   $window.MoodApp_stm_Cookies.watch(function (votes_done, team_code) {
     $scope.votes_done = votes_done;
     $scope.team_code = team_code;
-    if (team_code != undefined && votes_done){
+    if (team_code !== undefined && votes_done){
       $http.get(mood_app_path+"/api/stats/"+team_code).then(function(rsp){
         $scope.total = rsp.data.daily.total;
         if ($scope.total > 0){
           $scope.daily_mood = rsp.data.daily.data;
         }
-        if (rsp.data.daily.bads != undefined){
-          $scope.daily_bads = rsp.data.daily.bads
+        if (rsp.data.daily.bads !== undefined){
+          $scope.daily_bads = rsp.data.daily.bads;
         }
       });
     }
@@ -123,7 +122,7 @@ app.controller('homeControl', ['$scope', '$window', '$http', '$cookies',
   $scope.getPartial = function (a) {
       // console.log("getting partial: " + a);
       return mood_app_path + '/static/partials/' + a + '.html';
-  }
+  };
 }]);
 
 // app.controller('moodsAppVotesPannel', ['$scope', '$window', '$http', function($scope, $window, $http){

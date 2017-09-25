@@ -46,8 +46,6 @@ Vagrant.configure(2) do |config|
      echo ">>> Insert systemd config"
      sudo ln -s /vagrant/server/mood-app.service /etc/systemd/system/mood-app.service
      sudo ln -s /vagrant/server/mood-app.socket /etc/systemd/system/mood-app.socket
-     sudo systemctl enable mood-app.socket
-     sudo systemctl enable mood-app.service
      sudo systemctl start mood-app.service
 
      echo ">>> Reroute nginx default config"

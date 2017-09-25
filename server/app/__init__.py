@@ -1,27 +1,28 @@
 # -*- coding: utf-8 -*-
+# Standard imports
 from flask import Flask, render_template, request
 from flask_restful import Resource, Api, reqparse
 import json
 import os
-#import datetime
 from datetime import datetime
 from multiprocessing import Lock
 
+# App-specific imports
 from lib.teamsconf import TeamConfig
 from lib.votecoder import VoteCodeObfuscator
 from lib.moods_model import MoodsModel
-# from lib.bads_model import BadsModel
 
 PATH_TO_TEAMCONF = "./config/teams.json"
 PATH_TO_WHYBADCONF = "./config/default_why_bad.json"
 PATH_TO_DATA = "./data/"
 BASE_URL = ""
 BASE_URL_DEV = "http://sim2/doors-export-dev"
-PORT_DEV = 31331
 
 MOOD_OPTS = ['opt1', 'opt2', 'opt3', 'opt4']
 
+# App instanciacion and config
 app = Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.base_url = BASE_URL
 api = Api(app)
 lock = Lock()
@@ -37,7 +38,7 @@ bads_coder = VoteCodeObfuscator([x['name'] for x in bads_opts])
 
 def last_week(datestamp):
     """
-    Given a datestamp returns the dates of monday and friday of the previous week
+    Given a datestamp returns the range dates (Mon, Fri) of the previous week
     :param datestamp: a date string in YYYY-MM-DD fromat
     :rtype: returns a list of date-strings like ("2017-07-24", "2017-07-28")
     """
@@ -45,7 +46,8 @@ def last_week(datestamp):
     last_iso_monday = "{0}.{1}.{2}".format(year, week-1, 1)
     last_iso_friday = "{0}.{1}.{2}".format(year, week-1, 5)
     return (datetime.strptime(last_iso_monday, '%Y.%W.%w').date().isoformat(),
-           datetime.strptime(last_iso_friday, '%Y.%W.%w').date().isoformat())
+            datetime.strptime(last_iso_friday, '%Y.%W.%w').date().isoformat())
+
 
 ##############################################################################
 def get_daily_bads(team):
@@ -72,13 +74,13 @@ def get_daily_stats(moods, team, headcount):
     """Given a MoodsModel object and headcount returns the daily mood."""
     moods_get = moods.get()
     if moods_get:
-        daily = zip(['opt1','opt2','opt3','opt4'], moods_get[1:])
+        daily = zip(MOOD_OPTS, moods_get[1:])
         out = []
-        others = {'name':'None', 'val': 100}
+        others = {'name': 'None', 'val': 100}
         total = 0
         for key, val in daily[::-1]:
             if val > 0:
-                out.append({'name':key, 'val': int(int(val)*100/headcount)})
+                out.append({'name': key, 'val': int(int(val)*100/headcount)})
                 others['val'] -= int(int(val)*100/headcount)
                 total += int(val)
         out.append(others)
@@ -111,9 +113,9 @@ def get_bads_from_buff(team):
         data = json.load(fh)
         if "datestamp" not in data:
             # bad data structure, ignore contents - make new insance
-            data = { 'datestamp': today(), 'bads': {} }
+            data = {'datestamp': today(), 'bads': {}}
     except:
-        data = { 'datestamp': today(), 'bads': {} }
+        data = {'datestamp': today(), 'bads': {}}
     return data
 
 
@@ -123,7 +125,6 @@ def update_bads_buff(team, bads_buff, bads):
     with open(os.path.join(PATH_TO_DATA, team + '.json'), 'wb') as fh:
         json.dump(bads_buff, fh)
 
-# End of hard stuff
 
 def save_results(team, mood, whybads):
     print "team {} gets +1 in column {}".format(team, mood)
@@ -143,7 +144,6 @@ def save_results(team, mood, whybads):
                 update_bads_buff(team, bads_buff, whybads)
         finally:
             lock.release()
-
 
 
 @app.after_request
@@ -197,7 +197,7 @@ class Stats(Resource):
         if not os.path.isfile(filename):
             return {'message': 'selected team doesnt exist'}, 409
         moods = MoodsModel(team_id, today())
-        headcount = 71 # TODO: implement a team-based headcount lookup
+        headcount = 71  # TODO: implement a team-based headcount lookup
         stats = {}
         daily = get_daily_stats(moods, team_id, headcount)
         if daily:
@@ -219,7 +219,8 @@ class Stats(Resource):
         for idx, opt in enumerate(opts):
             if opt > 0:
                 stats['weekly']['mood'].append(
-                    {'name': 'opt'+str(4-idx), 'val': int(opt*100.0/all_votes)})
+                    {'name': 'opt'+str(4-idx),
+                     'val': int(opt*100.0/all_votes)})
         stats['weekly']['coverage'] = [
                 {'name': 'opt1', 'val': int(all_votes*100.0/total)},
                 {'name': 'None', 'val': (100 - int(all_votes*100.0/total))}]

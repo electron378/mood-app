@@ -63,24 +63,26 @@
 
     <!-- Libraries
     ================================================== -->
-    <script src="{{ app_path }}/static/js/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="{{ app_path }}/static/js/jquery.min.js"><\/script>')</script>
-    <script src="{{ app_path }}/static/js/js-cookie.js"></script>
-    <script src="{{ app_path }}/static/js/cookies-machine.js"></script>
-    <script src="{{ app_path }}/static/js/bootstrap.min.js"></script>
-    <script src="{{ app_path }}/static/js/angular.min.js"></script>
-    <script src="{{ app_path }}/static/js/angular-route.min.js"></script>
-    <script src="{{ app_path }}/static/js/angular-animate.min.js"></script>
-    <script src="{{ app_path }}/static/js/angular-cookies.js"></script>
-    <script src="{{ app_path }}/static/js/d3.js"></script>
+    <script src="{{ app_path }}/static/js/vendor/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ app_path }}/static/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="{{ app_path }}/static/js/vendor/js-cookie.js"></script>
+    <script src="{{ app_path }}/static/js/vendor/bootstrap.min.js"></script>
+    <script src="{{ app_path }}/static/js/vendor/angular.min.js"></script>
+    <script src="{{ app_path }}/static/js/vendor/angular-route.min.js"></script>
+    <script src="{{ app_path }}/static/js/vendor/angular-animate.min.js"></script>
+    <script src="{{ app_path }}/static/js/vendor/d3.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{{ app_path }}/static/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{{ app_path }}/static/js/vendor/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- Mood App Client -->
+    <!-- Mood-App D3 widgets -->
+    <script src="{{ app_path }}/static/js/d3-widgets/mood-gauge.js"></script>
+    <script src="{{ app_path }}/static/js/d3-widgets/bad-bars.js"></script>
+
+    <!-- Mood App Web Client -->
     <script src="{{ app_path }}/static/js/client-web.js"></script>
-    <script src="{{ app_path }}/static/js/mood-gauge.js"></script>
-    <script src="{{ app_path }}/static/js/bad-bars.js"></script>
+    <script src="{{ app_path }}/static/js/cookies-machine.js"></script>
 
+    <!-- Mood App data collection widget, async insertion as it would be done on a 3rd party page -->
     <div id="deploy-how-are-you-widget"></div><script>(function(d){ var js = d.createElement("script"); js.src = mood_app_path + "/static/how-are-you.js"; (d.head || d.getElementByTagName("head")[0]).appendChild(js); js.onload=function(){ votes_run(mood_app_path);  }; }(document)); </script>
 
 

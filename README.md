@@ -12,9 +12,7 @@ People's mood at work is influenced by a variety of things like work-related
 ## Development Environment
 Requires: Vagrant >= 1.8.3, VirtualBox
 
-The app dev process is currently local and is based on Vagrant. The Vagrant file configures the development virtual machine, gets all the dependencies and sets stuff up so that you get the same consistent development experience regardless of your host OS specifics. When the vagrant is up you should get the app front-end at 192.168.42.42
-
-All code is written using the fantastic Github's Atom.
+The app development process is currently local and is based on Vagrant. The Vagrant file configures the development virtual machine, gets all the dependencies and sets stuff up so that you get the same consistent development experience regardless of your host OS. When the vagrant is up you should get the app front-end at 192.168.42.42. Initial provisioning may take a few minutes and will require Internet connection (to download VM image, apt and pip installs).
 
 ## Credits
 This is an open source software licensed under the [MIT license](https://opensource.org/licenses/MIT).

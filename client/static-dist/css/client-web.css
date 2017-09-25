@@ -28,16 +28,15 @@ body {
 }
 
 .metric-face {
-  width:22px; height: 22px; background-color: #ffcc4d; background-size: 22px 22px; display: inline-block; 
+  width:22px; height: 22px; background-color: #ffcc4d; background-size: 22px 22px; display: inline-block;
   margin-right: 8px;
 }
-
 .metric-color {
   height: 22px; width: 22px; display: inline-block;
 }
 
 #mood-legend {
-  margin-left: 0em; width:7.4em;
+  margin-left: 0; width:7.4em;
 }
 
-#mood-daily { padding-right: 0em; width: 346px; }
+#mood-daily { padding-right: 0; width: 346px; }

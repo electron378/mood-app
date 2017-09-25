@@ -5,7 +5,8 @@ client/node_modules/
 client/bower_components/
 docs/.ipynb_checkpoints/
 client/npm-debug.log
-server/error.log
-server/app/data/
-server/access.log
+
+server/data/*.sqlite
+server/data/*.json
+server/logs/*.log
 .vagrant/

@@ -10,8 +10,8 @@ Group=www-data
 RuntimeDirectory=mood-app
 WorkingDirectory=/vagrant/server
 ExecStart=/usr/local/bin/gunicorn \
-          --access-logfile /vagrant/server/access.log \
-          --error-logfile /vagrant/server/error.log \
+          --access-logfile /vagrant/server/logs/mood-app.access.log \
+          --error-logfile /vagrant/server/logs/mood-app.error.log \
           --pid /run/mood-app/pid   \
           --bind unix:/run/mood-app/socket wsgi:app
 ExecReload=/bin/kill -s HUP $MAINPID
