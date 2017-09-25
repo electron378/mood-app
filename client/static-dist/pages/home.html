@@ -1,0 +1,112 @@
+<div class="container"  ng-controller="homeControl">
+
+<div class="row">
+  <div class="col-md-7"><!-- column-left -->
+    <!-- introduction -->
+      <div ng-include src="getPartial('intro')"></div>
+    <!-- /introduction -->
+
+    <!-- last week stats -->
+    <div class="panel panel-default" ng-if="weekly_range">
+      <div class="panel-heading" style="background-color:white; font-size:1.3em;">
+        Last Week <span style="color:#999">({{ weekly_range }})</span></div>
+      <div class="panel-body">
+        <div ng-if="weekly_calculated">
+          <half-donut data="weekly_mood" w="294" h="152" title="Mood"></half-donut>
+          <half-donut data="weekly_participation" w="294" h="152" title="Participation"></half-donut>
+        </div>
+        <div ng-if="weekly_bads">
+          <hr>
+          <p>Things that made us unhappy last week:</p>
+          <bad-bars data="weekly_bads" w="155"></bad-bars>
+        </div>
+      </div>
+    </div>
+    <!-- /last week stats -->
+
+  </div><!-- /column-left -->
+
+  <div class="col-md-5"><!-- column-right -->
+    <!-- config-required -->
+      <div ng-if="team_code===undefined">
+        <div ng-include src="getPartial('config-required')"></div>
+      </div>
+    <!-- /config-required -->
+
+    <!-- daily widget stuff -->
+<div >
+  <div ng-show="votes_done==false" class="panel panel-default">
+    <div class="panel-heading" style="background-color:white; font-size:1.3em;">How are you today?</div>
+    <div class="panel-body">
+      <p>Share your mood and learn how the rest of the team is doing!</p>
+    </div>
+  </div>
+
+  <div class="panel panel-default" ng-show="votes_done==true">
+    <div class="panel-heading" style="background-color:white; font-size:1.3em;">
+      Today</div>
+    <div class="panel-body">
+      <div ng-switch on="total">
+        <p ng-switch-when="undefined">The team mooods will appear here shortly</p>
+        <p ng-switch-when="0">No one else voted yet</p>
+        <div ng-switch-default>
+<!---------------------------------------------------------------------------->
+
+        <!-- Team mood -->
+        <div class="row">
+          <div class="col-md-9">
+            <half-donut data="daily_mood" w="314" h="152" title="Mood"></half-donut>
+          </div>
+          <div class="col-md-3" id="mood-legend">
+            <div class="row"><p>Legend:</p></div>
+            <div class="row">
+              <div class="metric-color" style="background: #4caf50"></div> =
+              <div class="vote-option svg-opt_1 metric-face"></div>
+            </div>
+            <div class="row">
+              <div class="metric-color" style="background: #ffeb3b"></div> =
+              <div class="vote-option svg-opt_2 metric-face"></div>
+            </div>
+            <div class="row">
+              <div class="metric-color" style="background: #ffc107"></div> =
+              <div class="vote-option svg-opt_3 metric-face"></div>
+            </div>
+            <div class="row">
+              <div class="metric-color" style="background: #ff5722"></div> =
+              <div class="vote-option svg-opt_4 metric-face"></div>
+            </div>
+            <div class="row">
+              <div class="metric-color" style="background: #dedede"></div> =
+              unknown
+            </div>
+          </div>
+        </div>
+        <!-- endof Team mood -->
+        <div ng-if="daily_bads">
+          <hr><p>Things that make us feel bad today:</p>
+          <bad-bars data="daily_bads" w="155"></bad-bars>
+        </div>
+
+<!---------------------------------------------------------------------------->
+      </div>
+    </div>
+    </div>
+  </div>
+
+<!--
+  <div ng-show="votes_done==true" class="panel panel-default">
+    <div class="panel-heading" style="background-color:white; font-size:1.3em;">What makes us unhappy today</div>
+    <div class="panel-body">
+      <p>The unhappiness reasons will appear here shortly</p>
+    </div>
+  </div>-->
+</div>
+<!-- /daily widget stuff -->
+
+
+  </div><!-- /column-right -->
+</div>
+
+
+
+</div> <!-- /container -->

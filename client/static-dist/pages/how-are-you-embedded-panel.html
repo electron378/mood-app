@@ -1,0 +1,49 @@
+<!-- daily widget stuff -->
+<div ng-controller="moodsAppVotesPannel">
+  <div ng-show="votes_done==false" class="panel panel-default">
+    <div class="panel-heading" style="background-color:white; font-size:1.3em;">How are you today?</div>
+    <div class="panel-body">
+      <p>Share your mood and learn how the rest of the team is doing!</p>
+    </div>
+  </div>
+
+  <div ng-show="votes_done==true" class="panel panel-default">
+    <div class="panel-heading" style="background-color:white; font-size:1.3em;">Team mood today</div>
+    <div class="panel-body">
+      <p ng-if="total==undefined">The team mooods will appear here shortly</p>
+      <p ng-if="total==0">No one else voted yet</p>
+      <div ng-if"total!=0">
+<!---------------------------------------------------------------------------->
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{ opt1 }}%">
+            {{ opt1 | number:0 }}% are good
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ opt2 }}%">
+            {{ opt2 | number:0 }}% are ok
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ opt3 }}%">
+            {{ opt3 | number:0 }}% are not too bad
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: {{ opt4 }}%">
+            {{ opt4 | number:0 }}% are unhappy
+          </div>
+        </div>
+<!---------------------------------------------------------------------------->
+      </div>
+    </div>
+  </div>
+<!--
+  <div ng-show="votes_done==true" class="panel panel-default">
+    <div class="panel-heading" style="background-color:white; font-size:1.3em;">What makes us unhappy today</div>
+    <div class="panel-body">
+      <p>The unhappiness reasons will appear here shortly</p>
+    </div>
+  </div>-->
+</div>
+<!-- /daily widget stuff -->

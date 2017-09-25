@@ -1,0 +1,233 @@
+@media print {
+  #deploy-how-are-you-widget, #deploy-how-are-you-widget *
+  {
+    display: none !important;
+  } 
+}
+
+#deploy-how-are-you-widget {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 16px;
+  z-index: 1000;
+  background: #fff;
+  padding: 8px 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 0 16px 0 rgba(50,47,50,.5);
+  -moz-box-shadow: 0 0 16px 0 rgba(50,47,50,.5);
+  box-shadow: 0 0 16px 0 rgba(50,47,50,.5);
+  text-align: center;
+  line-height: 1em;
+  font-family: Arial;
+  color: #333;
+  font-size: 10pt;
+}
+
+#deploy-how-are-you-widget .caption {
+  font-size: 12pt;
+  margin: .3em .2em;
+  color: #777;
+  line-height: 1.4em;
+}
+
+#deploy-how-are-you-widget a {
+  color: #004990;
+  text-decoration: underline;
+  border: none;
+}
+
+#deploy-how-are-you-widget a:hover {
+  color: #23527c;
+}
+
+#deploy-how-are-you-widget #vote-thanks {
+  margin-top: 30px;
+  line-height: 1.5em;
+}
+
+#deploy-how-are-you-widget #disclaimer {
+  font-size: .8em;
+  font-family: Arial;
+  margin-bottom: 2px;
+  line-height: 1.3em;
+}
+
+#deploy-how-are-you-widget #option-go-away {
+  padding-bottom: .4em;
+}
+
+#deploy-how-are-you-widget #options-row {
+  margin-top: 4px;
+}
+
+#deploy-how-are-you-widget #options-row .vote-option {
+  height: 54px;
+  width: 54px;
+  margin: 4px 6.75px;
+  display: inline-block;
+  background-color: #ddd;
+  background-size: 54px 54px;
+}
+
+#deploy-how-are-you-widget #options-row .vote-option:hover {
+  background-color: #ffcc4d;
+}
+
+#deploy-how-are-you-widget .why-bad-list {
+  text-align: left;
+  margin-top: .3em;
+  margin-bottom: .5em;
+}
+
+#deploy-how-are-you-widget .why-bad-list ol,
+#deploy-how-are-you-widget .why-bad-list ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#deploy-how-are-you-widget .why-bad-list li {
+  position: relative;
+  padding: 7px 15px 7px 30px;
+  line-height: 18px;
+  font-size: 12px;
+  color: #333;
+  border-top: 1px solid #e6ebed;
+}
+
+#deploy-how-are-you-widget .why-bad-list input[type=checkbox] {
+  position: absolute;
+  top: 4px;
+  bottom: 0;
+  left: 0;
+}
+
+#deploy-how-are-you-widget .btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .5rem 1rem;
+  font-size: 10.5pt;
+  border-radius: .25rem;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  color: #004990;
+  background-image: none;
+  background-color: transparent;
+  border-color: #004990;
+  text-decoration: none;
+}
+
+#deploy-how-are-you-widget .btn:hover {
+  color: #fff;
+  background-color: #004990;
+  border-color: #004990;
+  text-decoration: none;
+}
+
+#deploy-how-are-you-widget .disabled {
+  color: #777;
+  border-color: #777;
+}
+
+#deploy-how-are-you-widget .disabled:hover {
+  color: #777;
+  border-color: #777;
+  background-color: #fff;
+}
+
+#deploy-how-are-you-widget .give-away-message-row {
+  vertical-align: top;
+}
+
+#deploy-how-are-you-widget .give-away-message-row .prize-icon {
+  width: 178px;
+  height: 172px;
+  display: inline-block;
+  background-size: 178px 172px;
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+
+#deploy-how-are-you-widget .give-away-message-row .message-container {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 18px;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+#deploy-how-are-you-widget .give-away-message-row .caption {
+  margin-top: 0;
+  padding-top: 0;
+  color: #004990;
+  font-size: 14pt;
+  line-height: 1.6em;
+}
+
+#deploy-how-are-you-widget .code-row {
+  margin: 2px 6px;
+}
+
+#deploy-how-are-you-widget .code-row input {
+  height: 31px;
+  margin: 5px 0;
+  color: #004990;
+  width: 280px;
+  font-size: 10pt;
+  border: 1px solid #004990;
+  border-radius: .25rem;
+  padding: 1px 5px;
+  margin-right: 8px;
+}
+
+#deploy-how-are-you-widget .code-row .btn {
+  margin-top: -3px;
+}
+
+#deploy-how-are-you-widget .svg-opt_1:hover {
+  background-color: #39cd4d!important;
+}
+
+#deploy-how-are-you-widget .svg-opt_4:hover {
+  background-color: #e45541!important;
+}
+.svg-opt_1,
+.svg-opt_1-after:after,
+.svg-opt_1-before:before {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20d%3D%22M0%200v64h64V0H0zm32%203.37c15.813%200%2028.63%2012.817%2028.63%2028.63%200%2015.813-12.817%2028.63-28.63%2028.63C16.187%2060.63%203.37%2047.814%203.37%2032%203.37%2016.187%2016.186%203.37%2032%203.37z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3Cpath%20d%3D%22M32%2037.053c-6.102%200-10.15-.711-15.158-1.685-1.143-.22-3.368%200-3.368%203.369%200%206.737%207.739%2015.158%2018.526%2015.158%2010.786%200%2018.526-8.421%2018.526-15.158%200-3.369-2.225-3.59-3.368-3.369-5.007.974-9.056%201.685-15.158%201.685M18.526%2023.579s0-3.368%203.369-3.368c3.368%200%203.368%203.368%203.368%203.368v3.368s0%203.369-3.368%203.369c-3.369%200-3.369-3.369-3.369-3.369V23.58zm20.211%200s0-3.368%203.368-3.368c3.369%200%203.369%203.368%203.369%203.368v3.368s0%203.369-3.369%203.369c-3.368%200-3.368-3.369-3.368-3.369V23.58z%22%20fill%3D%22%23664500%22%2F%3E%3Cpath%20d%3D%22M16.842%2038.737S21.895%2040.42%2032%2040.42s15.158-1.684%2015.158-1.684S43.789%2045.474%2032%2045.474c-11.79%200-15.158-6.737-15.158-6.737%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E");
+}
+
+.svg-opt_2,
+.svg-opt_2-after:after,
+.svg-opt_2-before:before {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20d%3D%22M25.263%2029.474c0%203.257-1.884%205.894-4.21%205.894s-4.21-2.637-4.21-5.894c0-3.256%201.884-5.895%204.21-5.895s4.21%202.64%204.21%205.895m21.895%200c0%203.257-1.885%205.894-4.21%205.894-2.327%200-4.211-2.637-4.211-5.894%200-3.256%201.884-5.895%204.21-5.895s4.21%202.64%204.21%205.895m-3.367%2016c-10.818%203.57-17.216%201.473-23.58%200-.905-.21-1.684-.753-1.684-1.685%200-.93.806-1.988%201.685-1.684%209.035%203.124%2016.778%202.753%2023.578%200%20.864-.35%201.685.753%201.685%201.684%200%20.932-.753%201.685-1.685%201.685%22%20fill%3D%22%23664500%22%2F%3E%3Cpath%20d%3D%22M0%200v64h64V0H0zm32%203.37c15.813%200%2028.63%2012.817%2028.63%2028.63%200%2015.813-12.817%2028.63-28.63%2028.63C16.187%2060.63%203.37%2047.814%203.37%2032%203.37%2016.187%2016.186%203.37%2032%203.37z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+}
+
+.svg-opt_3,
+.svg-opt_3-after:after,
+.svg-opt_3-before:before {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064.000001%2064.000001%22%3E%3Cpath%20d%3D%22M25.263%2029.474c0%203.257-1.884%205.894-4.21%205.894s-4.21-2.637-4.21-5.894c0-3.256%201.884-5.895%204.21-5.895s4.21%202.639%204.21%205.895m21.895%200c0%203.257-1.885%205.894-4.21%205.894-2.327%200-4.211-2.637-4.211-5.894%200-3.256%201.884-5.895%204.21-5.895s4.21%202.639%204.21%205.895M21.895%2048.842c3.368-8.421%2021.894-8.421%2021.894-5.053%200%201.685-13.473-1.684-21.894%205.053%22%20fill%3D%22%23664500%22%2F%3E%3Cpath%20d%3D%22M0%200v64h64V0H0zm32%203.369c15.813%200%2028.63%2012.818%2028.63%2028.63%200%2015.814-12.817%2028.632-28.63%2028.632C16.187%2060.63%203.37%2047.813%203.37%2032S16.186%203.369%2032%203.369z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+}
+
+.svg-opt_4,
+.svg-opt_4-after:after,
+.svg-opt_4-before:before {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20d%3D%22M26.947%2030.316c0%202.79-1.507%205.052-3.368%205.052-1.86%200-3.368-2.261-3.368-5.052%200-2.79%201.509-5.053%203.368-5.053%201.861%200%203.368%202.262%203.368%205.053m16.843%200c0%202.79-1.508%205.052-3.369%205.052-1.86%200-3.368-2.261-3.368-5.052%200-2.79%201.509-5.053%203.368-5.053%201.861%200%203.368%202.262%203.368%205.053m-2.55%2020.006c-.02-.074-1.93-7.375-9.238-7.375-7.311%200-9.221%207.301-9.238%207.375a.834.834%200%200%200%20.389.917.859.859%200%200%200%201.004-.101c.016-.012%201.707-1.454%207.845-1.454%206.044%200%207.776%201.398%207.841%201.454a.842.842%200%200%200%201.397-.816m9.287-28.427c-9.354%200-13.14-7.355-13.297-7.668a1.685%201.685%200%200%201%203.012-1.513c.124.244%203.065%205.812%2010.285%205.812a1.684%201.684%200%201%201%200%203.369m-37.052%200a1.685%201.685%200%200%201%200-3.369c8.56%200%2010.098-5.254%2010.16-5.478a1.695%201.695%200%200%201%202.054-1.195%201.677%201.677%200%200%201%201.209%202.03c-.083.327-2.132%208.012-13.423%208.012%22%20fill%3D%22%23664500%22%2F%3E%3Cpath%20d%3D%22M0%200v64h64V0H0zm32%203.37c15.813%200%2028.63%2012.817%2028.63%2028.63%200%2015.813-12.817%2028.63-28.63%2028.63C16.187%2060.63%203.37%2047.814%203.37%2032%203.37%2016.187%2016.186%203.37%2032%203.37z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+}
+
+.svg-prize,
+.svg-prize-after:after,
+.svg-prize-before:before {
+  background-image: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2064%2064%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M45.4%2022.3l5.3-13c.1-.3.1-.7-.1-1l-.4-.5h-.5l-13.5%203.6-10.3-9.1-.4-.3h-.4c-.6%200-1.1.5-1.1%201l-.8%2014-11.7%207.3c-.4.2-.5.6-.5%201l.1.7%2013.4%205.4L31%2051.2c.1.5.6.8%201%20.8s.9-.3%201-.7l6.3-17%2012.5%201.5h.1c.4%200%20.8-.2.9-.6l.3-.6-7.7-12.3z%22%20fill%3D%22%23FFD54F%22%2F%3E%3Cpath%20fill%3D%22%23FFECB3%22%20d%3D%22M38%2013l-2.3.7-2.7-2.4%208.5%2021.3%204.5.5z%22%2F%3E%3Cpath%20fill%3D%22%23FFE082%22%20d%3D%22M28.3%207.1L25.9%205l-.7%2013.2-.9.5L34%2043l4-10.9.3.1z%22%2F%3E%3Cpath%20d%3D%22M32.2%2049.7l-1.7-5.1%201.1-.4.7%202%201.3-3.6%201.1.4-2.5%206.7zm3.2-8.8l-1.1-.4%203.5-9.4%204.7.6-.1%201.1-3.8-.5-3.2%208.6zm14.3-8.1l-1.2-2%201-.6%201.2%202-1%20.6zm-23.5-1.4l-.5-1.4-13-5.2%201.5-.9.3.4%2012.2%204.9.6%201.9-1.1.3zm-9.4-7.8l-.6-1%207.8-4.9.6%201-7.8%204.9zm28.9-4.9l-1.1-.4%203.5-8.5%201.1.4-3.5%208.5zm-9.8-5.1l-2.1-1.9.8-.9%201.7%201.5%2010.6-2.8.3%201.1-11.3%203zm-9.1-8l-.7-.6h-.6l.1-2%202%201.8-.8.8z%22%20fill%3D%22%23FFCA28%22%2F%3E%3Cpath%20fill%3D%22%23FF7043%22%20d%3D%22M21%2050h22v5H21z%22%2F%3E%3Cpath%20fill%3D%22%23B71C1C%22%20d%3D%22M17%2053h30v8H17z%22%2F%3E%3Cpath%20fill%3D%22%233E2723%22%20d%3D%22M16%2060h32v2H16z%22%2F%3E%3Cpath%20fill%3D%22%23FFB300%22%20d%3D%22M25%2053h14v6H25z%22%2F%3E%3Cpath%20fill%3D%22%23FBE9E7%22%20d%3D%22M26%2054h12v4H26z%22%2F%3E%3Cpath%20d%3D%22M16.8%2049l-4.2-5.7c-1-3.1-1-6.3%200-9.3.1-.3.4-.6.8-.7.4-.1.7.1%201%20.3%203.4%204.3%204.4%2010.2%202.4%2015.4zm-5.4-7.9c-.4-.9-.7-1.6-.9-2.3%201.7-5.2.6-10.9-2.9-15-.2-.2-.5-.3-.7-.3-.5%200-.8.3-1%20.7-1.6%205.3-.1%2011.1%203.7%2015.1.2.7.5%201.4.9%202.3l.9-.5z%22%20fill%3D%22%23FFCA28%22%2F%3E%3Cpath%20d%3D%22M14.5%2044c-.8%200-1.5-.9-1.5-2s.7-2%201.5-2%201.5.9%201.5%202-.7%202-1.5%202zm-6.7-4.6c-.5%200-1.1-.3-1.6-.7-.4-.4-.6-.8-.7-1.2-.1-.5%200-1%20.3-1.3.6-.6%201.7-.4%202.5.4.4.4.6.8.7%201.2.1.5%200%201-.3%201.3-.2.2-.6.3-.9.3z%22%20fill%3D%22%23FFB300%22%2F%3E%3Cpath%20d%3D%22M19%2050.4c-.7-.5-1.5-1.1-2.3-1.9-1.7-5.2-6-9.2-11.4-10.3-.4-.1-.8.1-1%20.4-.2.3-.2.6-.1.9%201.9%205.1%206.5%208.9%2011.9%209.8.8.7%201.6%201.4%202.3%201.9l.6-.8z%22%20fill%3D%22%23FFB300%22%2F%3E%3Cg%3E%3Cpath%20d%3D%22M47.2%2049l4.2-5.7c1-3.1%201-6.3%200-9.3-.1-.3-.4-.6-.8-.7-.4-.1-.7.1-1%20.3-3.4%204.3-4.4%2010.2-2.4%2015.4z%22%20fill%3D%22%23FFE082%22%2F%3E%3Cpath%20d%3D%22M52.6%2041.1c.4-.9.7-1.6.9-2.3-1.7-5.2-.6-10.9%202.9-15%20.2-.2.5-.3.7-.3.5%200%20.8.3%201%20.7%201.6%205.3.1%2011.1-3.7%2015.1-.2.7-.5%201.4-.9%202.3l-.9-.5z%22%20fill%3D%22%23FFD54F%22%2F%3E%3Cpath%20d%3D%22M48%2042c0-1.1.7-2%201.5-2s1.5.9%201.5%202-.7%202-1.5%202-1.5-.9-1.5-2zm7.3-3c-.3-.3-.4-.8-.3-1.3.1-.4.3-.9.7-1.2.8-.8%201.9-.9%202.5-.4.3.3.4.8.3%201.3-.1.4-.3.9-.7%201.2-.5.5-1%20.7-1.6.7-.3.1-.7%200-.9-.3z%22%20fill%3D%22%23FFB300%22%2F%3E%3Cpath%20d%3D%22M45%2050.4c.7-.5%201.5-1.1%202.3-1.9%201.7-5.2%206-9.2%2011.4-10.3.4-.1.8.1%201%20.4.2.3.2.6.1.9-1.9%205.1-6.5%208.9-11.9%209.8-.8.7-1.6%201.4-2.3%201.9l-.6-.8z%22%20fill%3D%22%23FFCA28%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
