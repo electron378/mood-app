@@ -1,8 +1,0 @@
-[Unit]
-Description=mood-app socket
-
-[Socket]
-ListenStream=/run/mood-app/socket
-
-[Install]
-WantedBy=sockets.target

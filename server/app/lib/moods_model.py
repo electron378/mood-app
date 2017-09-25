@@ -8,6 +8,7 @@
 
 import os
 import sqlite3
+import json
 
 
 class MoodsModel:
@@ -17,6 +18,7 @@ class MoodsModel:
          2. Create a db if it wasnt there.
          3. Loads the latest vote date '''
         self.today = today
+        self.json_uri = os.path.join(folder, db_id.lower() + ".json")
         self.filename = os.path.join(folder, db_id.lower() + ".sqlite")
         self.db = sqlite3.connect(self.filename)
         self.cursor = self.db.cursor()
@@ -33,6 +35,12 @@ class MoodsModel:
         self.last_entry_date = None
         for row in self.cursor:
             self.last_entry_date = row[0]
+        self.cursor = self.db.cursor()
+        self.cursor.execute('''CREATE TABLE IF NOT EXISTS `bads` (
+                `datestamp` TEXT UNIQUE,
+                `bads` TEXT DEFAULT 0,
+                PRIMARY KEY(`datestamp`) )''')
+        self.db.commit()
 
     def __del__(self):
         self.db.commit()
@@ -58,6 +66,19 @@ class MoodsModel:
             print e
             return False
         return True
+        
+    def save_old_bads(self, buff):
+        rq = "INSERT OR IGNORE INTO bads (datestamp, bads) values (?, ?)"
+        # only store if bads is not empty and a date change occured
+        if len(buff['bads']) > 0 and buff['datestamp'] != self.today:
+            self.cursor.execute(rq, (buff['datestamp'], json.dumps(buff['bads'])))
+            self.db.commit()
+            out = { 'datestamp': self.today, 'bads': {} }
+            # to prevent from repeatative insertion - reset the json buffer
+            with open(self.json_uri, 'wb') as fh:
+                json.dump(out, fh)
+            return out
+        return buff
 
     def get(self):
         rq = "SELECT * FROM moods WHERE datestamp = '{0}' LIMIT 1"
@@ -67,3 +88,25 @@ class MoodsModel:
                 return row
         except Exception as e:
             return {"message": "db query failed, weird..."}
+            
+    def get_moods_for(self, start, stop):
+        """Gets moods for a range of dates"""
+        rq = """SELECT * FROM {} WHERE 
+                datestamp BETWEEN ? AND ? ORDER BY datestamp"""
+        self.cursor.execute(rq.format('moods'), (start, stop))
+        moods = self.cursor.fetchall()
+        self.cursor.execute(rq.format('bads'), (start, stop))
+        bads_raw = self.cursor.fetchall()
+        bads = {}
+        print bads_raw
+        if len(bads_raw) > 0:
+            for idx, x in enumerate(bads_raw):
+                bads_raw[idx] = json.loads(x[1])
+            for bad in bads_raw:
+                for bk, bv in bad.iteritems():
+                    if bk in bads:
+                        bads[bk] += bv
+                    else:
+                        bads[bk] = bv
+            #bads = reduce(lambda x, y: dict((k, v + y[k]) for k, v in x.iteritems()), bads_raw)
+        return moods, bads if len(bads) > 0 else None
