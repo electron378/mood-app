@@ -14,6 +14,8 @@ Requires: Vagrant >= 1.8.3, VirtualBox
 
 The app development process is currently local and is based on Vagrant. The Vagrant file configures the development virtual machine, gets all the dependencies and sets stuff up so that you get the same consistent development experience regardless of your host OS. When the vagrant is up you should get the app front-end at 192.168.42.42. Initial provisioning may take a few minutes and will require Internet connection (to download VM image, apt and pip installs).
 
+For not-so-frequent vagrant users there is a [commands cheatsheet here](https://scotch.io/tutorials/get-vagrant-up-and-running-in-no-time#toc-vagrant-commands). For those new to vagrant there is a [great tutorial here](https://scotch.io/tutorials/get-vagrant-up-and-running-in-no-time).
+
 ## Credits
 This is an open source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
