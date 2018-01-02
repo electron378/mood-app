@@ -50,7 +50,9 @@
       Today</div>
     <div class="panel-body">
       <div ng-switch on="total">
-        <p ng-switch-when="undefined">The team mooods will appear here shortly</p>
+        <p ng-switch-when="undefined">The team mooods may appear here shortly
+          <div ng-show="message" class="alert alert-danger">{{ message }}</div>
+        </p>
         <p ng-switch-when="0">No one else voted yet</p>
         <div ng-switch-default>
 <!---------------------------------------------------------------------------->

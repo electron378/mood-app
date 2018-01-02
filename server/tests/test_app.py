@@ -80,7 +80,7 @@ class BackEndTests(unittest.TestCase):
         print "failed connections: ", failed_connect
         # rv = requests.get(SERVER_URL + "/stats/team1")
         # print rv.json()
-        rv = self.app.get('/stats/team1')
+        rv = self.app.get('/api/stats/team1')
         assert votes_mirror == json.loads(rv.data)['live_scores']
 
 

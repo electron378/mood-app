@@ -1,7 +1,6 @@
-{ "teams": [
-    { "name": "MegaTeam1", "spacer": true,
+[{ "name": "MegaTeam1", "spacer": true,
       "children": [
-          { "name": "Team-1"},
+          { "name": "Team-1", "headcount": 100},
           { "name": "Team-2"},
           { "name": "Team 3",
             "children": [
@@ -10,5 +9,4 @@
           { "name": "Team 4"}]},
     { "name": "Team 5"},
     { "name": "Other", "ignore":true }
-  ]
-}
+]

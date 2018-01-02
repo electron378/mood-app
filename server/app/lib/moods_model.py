@@ -66,14 +66,15 @@ class MoodsModel:
             print e
             return False
         return True
-        
+
     def save_old_bads(self, buff):
         rq = "INSERT OR IGNORE INTO bads (datestamp, bads) values (?, ?)"
         # only store if bads is not empty and a date change occured
         if len(buff['bads']) > 0 and buff['datestamp'] != self.today:
-            self.cursor.execute(rq, (buff['datestamp'], json.dumps(buff['bads'])))
+            sef.cursor.execute(rq, (buff['datestamp'],
+                                    json.dumps(buff['bads'])))
             self.db.commit()
-            out = { 'datestamp': self.today, 'bads': {} }
+            out = {'datestamp': self.today, 'bads': {}}
             # to prevent from repeatative insertion - reset the json buffer
             with open(self.json_uri, 'wb') as fh:
                 json.dump(out, fh)
@@ -88,10 +89,10 @@ class MoodsModel:
                 return row
         except Exception as e:
             return {"message": "db query failed, weird..."}
-            
+
     def get_moods_for(self, start, stop):
         """Gets moods for a range of dates"""
-        rq = """SELECT * FROM {} WHERE 
+        rq = """SELECT * FROM {} WHERE
                 datestamp BETWEEN ? AND ? ORDER BY datestamp"""
         self.cursor.execute(rq.format('moods'), (start, stop))
         moods = self.cursor.fetchall()
@@ -108,5 +109,6 @@ class MoodsModel:
                         bads[bk] += bv
                     else:
                         bads[bk] = bv
-            #bads = reduce(lambda x, y: dict((k, v + y[k]) for k, v in x.iteritems()), bads_raw)
+            # bads = reduce(lambda x, y:
+            # dict((k, v + y[k]) for k, v in x.iteritems()), bads_raw)
         return moods, bads if len(bads) > 0 else None

@@ -127,9 +127,6 @@ def update_bads_buff(team, bads_buff, bads):
 
 
 def save_results(team, mood, whybads):
-    print "team {} gets +1 in column {}".format(team, mood)
-    print whybads
-
     if mood in MOOD_OPTS:
         lock.acquire()
         try:
@@ -197,7 +194,11 @@ class Stats(Resource):
         if not os.path.isfile(filename):
             return {'message': 'selected team doesnt exist'}, 409
         moods = MoodsModel(team_id, today())
-        headcount = 71  # TODO: implement a team-based headcount lookup
+        headcount = teams_conf.teams[team_id]['headcount']
+        if headcount < 1:
+            return {'message': 'to see the team statistics here please ask'
+                               ' your app admin to set the team headcount '
+                               'first'}, 409
         stats = {}
         daily = get_daily_stats(moods, team_id, headcount)
         if daily:
@@ -228,6 +229,7 @@ class Stats(Resource):
             stats['weekly']['bads'] = last_bads
         return stats
 
+
 handle_day_change()
 
 api.add_resource(TeamConfig, '/api/set-team')
@@ -238,6 +240,7 @@ api.add_resource(Stats, '/api/stats/<string:team_id>')
 @app.route("/")
 def static_index():
     return render_template('index.html', app_path=app.base_url)
+
 
 if __name__ == '__main__':
     app.base_url = BASE_URL_DEV

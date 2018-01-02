@@ -113,6 +113,10 @@ app.controller('homeControl', ['$scope', '$window', '$http',
         if (rsp.data.daily.bads !== undefined){
           $scope.daily_bads = rsp.data.daily.bads;
         }
+      }, function(rsp){
+        if (rsp.data.message !== undefined) {
+          $scope.message = rsp.data.message;
+        }
       });
     }
     $scope.$apply();
