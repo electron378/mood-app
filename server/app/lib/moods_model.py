@@ -71,7 +71,7 @@ class MoodsModel:
         rq = "INSERT OR IGNORE INTO bads (datestamp, bads) values (?, ?)"
         # only store if bads is not empty and a date change occured
         if len(buff['bads']) > 0 and buff['datestamp'] != self.today:
-            sef.cursor.execute(rq, (buff['datestamp'],
+            self.cursor.execute(rq, (buff['datestamp'],
                                     json.dumps(buff['bads'])))
             self.db.commit()
             out = {'datestamp': self.today, 'bads': {}}

@@ -22,6 +22,11 @@ MOOD_OPTS = ['opt1', 'opt2', 'opt3', 'opt4']
 
 # App instanciacion and config
 app = Flask(__name__)
+
+#To serve statics via this app uncomment the below:
+# PATH_TO_CLIENT = "../client/static-dist"
+# app = Flask(__name__, static_folder=PATH_TO_CLIENT, static_url_path='/static' )
+
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.base_url = BASE_URL
 api = Api(app)
@@ -36,17 +41,22 @@ moods_coder = VoteCodeObfuscator(MOOD_OPTS)
 bads_coder = VoteCodeObfuscator([x['name'] for x in bads_opts])
 
 
-def last_week(datestamp):
+def iso2str(year, week, day):
+    return datetime.datetime.strptime("{0}.{1}.{2}".format(
+            year, week, day), '%Y.%W.%w').date().isoformat()
+
+
+def last_week(datestr):
     """
     Given a datestamp returns the range dates (Mon, Fri) of the previous week
     :param datestamp: a date string in YYYY-MM-DD fromat
     :rtype: returns a list of date-strings like ("2017-07-24", "2017-07-28")
     """
-    year, week, day = (datetime.strptime(datestamp, "%Y-%m-%d").isocalendar())
-    last_iso_monday = "{0}.{1}.{2}".format(year, week-1, 1)
-    last_iso_friday = "{0}.{1}.{2}".format(year, week-1, 5)
-    return (datetime.strptime(last_iso_monday, '%Y.%W.%w').date().isoformat(),
-            datetime.strptime(last_iso_friday, '%Y.%W.%w').date().isoformat())
+    iso_template = "{0}.{1}.{2}"
+    today = datetime.datetime.strptime(datestr, "%Y-%m-%d").date()
+    year, week, day = (today - datetime.timedelta(days=today.weekday(), weeks=1)).isocalendar()
+    return iso2str(year, week, day), iso2str(year, week, day+4)
+
 
 
 ##############################################################################
